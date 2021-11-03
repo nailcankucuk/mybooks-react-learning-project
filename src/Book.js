@@ -12,13 +12,13 @@ class Book extends Component {
 
         const updateBook = (event) => {
             event.preventDefault();
-            const newShelve = event.target.value;
+            const newShelf = event.target.value;
             const book = this.props.book;
-            if(newShelve !== book.shelve) {
+            if(newShelf !== book.shelf) {
                 console.log(book);
-                book.shelve = newShelve;
+                book.shelf = newShelf;
                 console.log(book);
-                this.props.updateBookShelf(book, newShelve, true);
+                this.props.updateBookShelf(book, newShelf, true);
             }
         }
 

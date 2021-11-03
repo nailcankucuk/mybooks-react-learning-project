@@ -7,7 +7,8 @@ class Search extends Component {
     state = {
         books: [
         ],
-        query: ''
+        query: '',
+        booksByShelf: this.props.booksByShelf
     }
 
     searchBooks = (event) => {
@@ -22,11 +23,33 @@ class Search extends Component {
         console.log(query);
         BooksAPI.search(query, 100)
             .then((books) => {
-                console.log(books);
                 books = (!books || books.error || (books && books.length === 0)) ? [] : books;
+                books = this.setBooksShelfData(books);
                 this.setState({books: books});
                 console.log(this.state.books);
             });
+    }
+
+    setBooksShelfData = (books) => {
+        if (!this.state.booksByShelf) {
+            return books;
+        }
+        console.log(this.state.booksByShelf)
+        return books.map((book) => {
+            const shelf = this.state.booksByShelf.get(book.id);
+            if (shelf) {
+                book.shelf = shelf;
+            }
+            return book;
+        });
+    }
+
+    addNewBookShelfToState = (book, shelf) => {
+        const booksByShelf = this.state.booksByShelf;
+        booksByShelf.set(book.id, shelf);
+        this.setState({
+            booksByShelf: booksByShelf
+        })
     }
 
     render() {
@@ -51,6 +74,7 @@ class Search extends Component {
                         {this.state.books.map((book, index) => (<Book key={index} book={book}
                                                                       updateBookShelf={(book, shelf, refresh) => {
                                                                           this.props.updateBookShelf(book, shelf, false);
+                                                                          this.addNewBookShelfToState(book, shelf);
                                                                           this.searchBooks();
                                                                       }}/>))}
                     </ol>

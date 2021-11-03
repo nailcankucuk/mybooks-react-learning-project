@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Shelve from './Shelve'
+import Shelf from './Shelf'
 import * as CollectionUtil from './CollectionUtil'
 
 class Bookshelf extends Component {
@@ -9,9 +9,9 @@ class Bookshelf extends Component {
 
         return (
             <div className="list-books-content">
-                <Shelve books={groupedBooks.currentlyReading} updateBookShelf={updateBookShelf} shelveTitle='Currently Reading'/>
-                <Shelve books={groupedBooks.wantToRead} updateBookShelf={updateBookShelf} shelveTitle='Want To Read'/>
-                <Shelve books={groupedBooks.read} updateBookShelf={updateBookShelf} shelveTitle='Read'/>
+                <Shelf books={groupedBooks.currentlyReading} updateBookShelf={updateBookShelf} shelfTitle='Currently Reading'/>
+                <Shelf books={groupedBooks.wantToRead} updateBookShelf={updateBookShelf} shelfTitle='Want To Read'/>
+                <Shelf books={groupedBooks.read} updateBookShelf={updateBookShelf} shelfTitle='Read'/>
             </div>
         );
     }
