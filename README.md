@@ -27,7 +27,7 @@ This project consists of 2 pages. On the Dashboard page, the books in these cate
 
 On the search screen, it is possible to search according to the name of the book or the name of the author. Searchable words are specified in the "search_terms.md" file. We can move what we want among the books that appear in the search results to one of the shelves on the dashboard page, again with the help of the menu on the book.
 
-![alt text](https://github.com/nailcankucuk/mybook-react-learning-project/blob/main/dashboard.png?raw=true)
+![alt text](https://raw.githubusercontent.com/nailcankucuk/mybooks-react-learning-project/main/public/docs/dashboard.png)
 
-![alt text](https://github.com/nailcankucuk/mybook-react-learning-project/blob/main/search.png?raw=true)
+![alt text](https://raw.githubusercontent.com/nailcankucuk/mybooks-react-learning-project/main/public/docs/search.png)
 
